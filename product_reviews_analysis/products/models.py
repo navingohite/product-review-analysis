@@ -16,7 +16,7 @@ class Product(models.Model):
     vendor = models.CharField(max_length=64, default="Unknown")
     description = models.CharField(max_length=256)
 
-    def _str_(self):
+    def __str__(self):
          return self.name
 
 class Review(models.Model):
@@ -25,5 +25,5 @@ class Review(models.Model):
     stars = models.IntegerField(choices=REVIEW_STARS_CHOICES)
     date = models.DateField('review date')
 
-    def _str_(self):
+    def __str__(self):
          return "[" + str(self.product) + "] " + "*" * self.stars + " " + self.review[0:32]
