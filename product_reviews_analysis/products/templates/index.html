@@ -64,7 +64,7 @@
                         <label for="exampleFormControlSelect1">Select Product</label>
                         <select class="form-control" name="product_id" >
                             {% for product in products %}
-                                {% if product.id == selected_product_id %}
+                                {% if product.id == selected_product.id %}
                                 <option value="{{ product.id }}" selected>{{ product.name }}</option>
                                 {% else %}
                                 <option value="{{ product.id }}">{{ product.name }}</option>
@@ -97,8 +97,16 @@
 
                 <form>
                     <div class="form-group">
-                        <label for="exampleFormControlInput1">Avarage Output</label>
-                        <h1>Good!</h1>
+                        <label for="exampleFormControlInput1">Product Sentiment Score</label>
+                        <h1>{{selected_product.score_compound}}</h1>
+                        <label for="exampleFormControlInput1">Product Sentiment Output</label>
+                        {% if selected_product.score_compound > 0 %}
+                        <h1> Positive </h1>
+                        {% elif selected_product.score_compound < 0 %}
+                        <h1> Negative </h1>
+                        {% else %}
+                        <h1> Neutral </h1>
+                        {% endif %}
                     </div>
 
                 </form>
@@ -113,10 +121,10 @@
                     <th scope="col">Product</th>
                     <th scope="col">Date</th>
                     <th scope="col">Review</th>
-                    <th scope="col">Score</th>
-                    <th scope="col">Score</th>
-                    <th scope="col">Score</th>
-                    <th scope="col">Score</th>
+                    <th scope="col">Negative</th>
+                    <th scope="col">Neutral</th>
+                    <th scope="col">Positive</th>
+                    <th scope="col">Compound</th>
                 </tr>
             </thead>
             <tbody> 
@@ -125,7 +133,10 @@
                     <td>{{review.product}}</td>
                     <td>{{review.date}}</td>
                     <td>{{review.review}}</td>
-                    <td>{{review.score_compound}} / {{review.score_pos}}</td>
+                    <td>{{review.score_neg}}</td>
+                    <td>{{review.score_neu}}</td>
+                    <td>{{review.score_pos}}</td>
+                    <td>{{review.score_compound}}</td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -152,19 +163,10 @@
                         <div class="col-md-5 col-12">
                             <!-- Email input -->
                             <div class="form-outline form-white mb-4">
-                                <input type="email" id="form5Example29" class="form-control" />
                                 <label class="form-label" for="form5Example29">Email address</label>
                             </div>
                         </div>
-                        <!--Grid column-->
-
-                        <!--Grid column-->
-                        <div class="col-auto">
-                            <!-- Submit button -->
-                            <button type="submit" class="btn btn-outline-light mb-4">
-                                Subscribe
-                            </button>
-                        </div>
+                       
                         <!--Grid column-->
                     </div>
                     <!--Grid row-->
