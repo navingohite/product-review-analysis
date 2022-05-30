@@ -8,6 +8,7 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Product Sentiment Analysis</title>
 </head>
 
@@ -27,32 +28,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
             </ul>
 
         </div>
     </nav>
-    <!-- <label for="products">Select Product</label>
-        <select name="products" id="products">
-        {% for product in products %}
-            <option value="{{ product }}">{{ product }}</option>
-        {% endfor %}
-        </select>
-        <input type="button" value="Go" onclick="/analysis"/> -->
+
     <br><br><br><br><br>
     <div class="container">
         <div class="row">
@@ -101,7 +81,10 @@
                         <h1>{{selected_product.score_compound}}</h1>
                         <label for="exampleFormControlInput1">Product Sentiment Output</label>
                         {% if selected_product.score_compound > 0 %}
-                        <h1> Positive </h1>
+                        <h1> Positive  </h1>
+                        <i class="fa-solid fa-face-laugh-beam"></i>
+
+
                         {% elif selected_product.score_compound < 0 %}
                         <h1> Negative </h1>
                         {% else %}
@@ -154,20 +137,12 @@
                         <!--Grid column-->
                         <div class="col-auto">
                             <p class="pt-2">
-                                <strong>Sign up for our newsletter</strong>
+                                <strong>About Product Sentiment Analysis</strong>
+                                <div class="form-outline form-white mb-4">
+                                    <label class="form-label" for="form5Example29">Sentiment analysis is the automated process of understanding the sentiment or opinion of a given text. You can use it to automatically analyze product reviews and sort them by Positive, Neutral, Negative. The best part.</label>
+                                </div>
                             </p>
                         </div>
-                        <!--Grid column-->
-
-                        <!--Grid column-->
-                        <div class="col-md-5 col-12">
-                            <!-- Email input -->
-                            <div class="form-outline form-white mb-4">
-                                <label class="form-label" for="form5Example29">Email address</label>
-                            </div>
-                        </div>
-                       
-                        <!--Grid column-->
                     </div>
                     <!--Grid row-->
                 </form>
